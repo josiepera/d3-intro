@@ -22,12 +22,15 @@
 
 var dataset = [80,100,56,180,30,40,120,160];
 
-var svgWidth = 500, svgHeight = 300, barPadding = 5;
-var barWidth = (svgWidth / dataset.length //calculate the width of each bar ede
+var svgWidth = 500;
+var svgHeight = 300;
+var barPadding = 5;
+
+var barWidth = (svgWidth / dataset.length) //calculate the width of each bar ede
 
 
 var svg = d3.select('svg') //select svg container
-  .attr("width", svgWidth); //give iit the attribute of width and height
+  .attr("width", svgWidth) //give iit the attribute of width and height
   .attr("height", svgHeight);
 
 var barChart = svg.selectAll("rect") //create a bar chart by first selecting all rectangles

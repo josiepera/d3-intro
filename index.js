@@ -44,7 +44,25 @@ var barChart = svg.selectAll("rect") //create a bar chart by first selecting all
     return d;
   })
   .attr("width", barWidth - barPadding)//provide width to barchart
+  .attr("class", "bar")
   .attr("transform", function(d, i){
     var translate = [barWidth * i, 0];
     return "translate("+ translate +")";
   })
+
+//adding text elements to each barChart
+
+var text = svg.selectAll("text")//select all of the text elements inside svg but since not text, it will return empty selection
+  .data(dataset)
+  .enter()
+  .append("text")
+  .text(function(d) { //text method we can get value of data item
+    return d; //data value is parameter and returned
+  })
+  .attr("y", function(d, i){ //y attribute but text is slightly higher than bar
+    return svgHeight - d - 2;//we are subtracting two more pixels from it
+  })
+  .attr("x", function(d, i){
+    return barWidth * i; //x attr is the starting point of each rectangle, barWidth * index of data element
+  })
+  .attr("fill", "#A64C38")
